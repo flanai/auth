@@ -61,6 +61,10 @@ public class Controller
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request)  {
+
+        // !!!!!!!!!!!!!!!! pour tester les ws :
+        // curl http://localhost:8080 -u admin:pass
+
         HttpSession session=request.getSession();
         System.out.println("session id before invalidating session is:"+session.getId());
         session.invalidate();
@@ -78,6 +82,10 @@ public class Controller
 
     @RequestMapping(value = {"/clear"})
     public String clear(HttpServletRequest request, HttpServletResponse response){
+
+        // !!!!!!!!!!!!!!!! pour tester les ws :
+        // curl http://localhost:8080 -u admin:pass
+
         HttpSession session= request.getSession(false);
         SecurityContextHolder.clearContext();
         session= request.getSession(false);
@@ -93,6 +101,20 @@ public class Controller
 
     @RequestMapping(value = {"/flow"})
     public String flow(){
+
+        // !!!!!!!!!!!!!!!! pour tester les ws :
+        // curl http://localhost:8080 -u admin:pass
+
         return "flow without auth...";
     }
+
+    @RequestMapping(value = {"/flow_secure"})
+    public String flowSecure(){
+
+        // !!!!!!!!!!!!!!!! pour tester les ws :
+        // curl http://localhost:8080/flow_secure -u admin:pass
+
+        return "flow with auth !!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    }
+
 }

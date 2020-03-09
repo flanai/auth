@@ -26,6 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
          .authorizeRequests().anyRequest().authenticated()
          .and()
          .httpBasic();*/
+
+        // !!!!!!!!!!!!!!!! pour tester les ws :
+        // curl http://localhost:8080 -u admin:pass
     }
 
     @Autowired
